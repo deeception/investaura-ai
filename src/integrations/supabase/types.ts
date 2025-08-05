@@ -14,7 +14,90 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      ai_insights: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          insight_type: string
+          metadata: Json | null
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          insight_type: string
+          metadata?: Json | null
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          insight_type?: string
+          metadata?: Json | null
+        }
+        Relationships: []
+      }
+      stocks: {
+        Row: {
+          buy_price: number
+          created_at: string
+          current_price: number
+          id: string
+          quantity: number
+          ticker: string
+          updated_at: string
+        }
+        Insert: {
+          buy_price: number
+          created_at?: string
+          current_price?: number
+          id?: string
+          quantity: number
+          ticker: string
+          updated_at?: string
+        }
+        Update: {
+          buy_price?: number
+          created_at?: string
+          current_price?: number
+          id?: string
+          quantity?: number
+          ticker?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_settings: {
+        Row: {
+          api_key: string | null
+          created_at: string
+          currency: string | null
+          id: string
+          theme: string | null
+          updated_at: string
+          user_name: string | null
+        }
+        Insert: {
+          api_key?: string | null
+          created_at?: string
+          currency?: string | null
+          id?: string
+          theme?: string | null
+          updated_at?: string
+          user_name?: string | null
+        }
+        Update: {
+          api_key?: string | null
+          created_at?: string
+          currency?: string | null
+          id?: string
+          theme?: string | null
+          updated_at?: string
+          user_name?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
